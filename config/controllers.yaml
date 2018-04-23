@@ -10,3 +10,9 @@ services:
     tags: ['controller.service_arguments']
     arguments:
       - '@app.infrastructure.query_bus'
+
+  app.controller.savings.get_history:
+    class: App\Controller\SavingsGetHistoryController
+    tags: ['controller.service_arguments']
+    arguments:
+      - '@app.infrastructure.query_bus'

@@ -49,3 +49,9 @@ services:
             - { name: 'app.query_handler' }
         public: false
 
+    app.query_handler.get_savings_history:
+        class: App\Application\Query\GetSavingsHistoryQueryHandler
+        tags:
+            - { name: 'app.query_handler' }
+        public: false
+

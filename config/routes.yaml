@@ -8,3 +8,7 @@ savings_get_total_balance:
   defaults: { _controller: app.controller.savings.get_total_balance }
   methods:  [GET]
 
+savings_get_history:
+  path:     /savings/history
+  defaults: { _controller: app.controller.savings.get_history }
+  methods:  [GET]
