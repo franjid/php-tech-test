@@ -48,7 +48,7 @@ php -S 127.0.0.1:8000 -t public
 
 Now you can use your favorite tool to send POST requests to add money to the savings:
 ```
-curl -X POST  '{"amount": 1234}' -v http://localhost:8000/savings
+curl -X POST -d '{"amount": 1234}' http://localhost:8000/savings
 ```
 
 To get the total amount in savings:
