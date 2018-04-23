@@ -1,4 +1,8 @@
 services:
+  app.controller.index:
+    class: App\Controller\IndexController
+    tags: ['controller.service_arguments']
+
   app.controller.savings.post:
     class: App\Controller\SavingsPostController
     tags: ['controller.service_arguments']

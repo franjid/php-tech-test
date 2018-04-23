@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Application\Command\AddAmountToSavingsCommand;
 use App\Domain\Bus\Command\CommandBus;
+use App\Types\ValueObject\Amount;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,7 +21,7 @@ class SavingsPostController
     {
         $command = new AddAmountToSavingsCommand(
             //$request->get('amount'),
-            1234
+            new Amount(1234)
         );
 
         $this->commandBus->dispatch($command);

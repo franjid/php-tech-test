@@ -1,3 +1,8 @@
+index:
+  path:     /
+  defaults: { _controller: app.controller.index }
+  methods:  [GET]
+
 savings_post:
   path:     /savings
   defaults: { _controller: app.controller.savings.post }

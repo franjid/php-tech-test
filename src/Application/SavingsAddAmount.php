@@ -9,6 +9,7 @@ use App\Application\Event\EventStoreCsv;
 use App\Application\Event\Listener\AmountWasAddedToSavingsListener;
 use App\Application\Projection\SavingsUpdateTotalAmountProjection;
 use App\Domain\Bus\Event\EventPublisher;
+use App\Types\ValueObject\Amount;
 
 final class SavingsAddAmount
 {
@@ -19,10 +20,10 @@ final class SavingsAddAmount
         $this->publisher  = $publisher;
     }
 
-    public function add(string $amount): void
+    public function add(Amount $amount): void
     {
         $event = new AmountWasAddedToSavingsEvent([
-                'amount' => $amount
+                'amount' => $amount->value()
         ]);
 
         $this->publisher->subscribe(

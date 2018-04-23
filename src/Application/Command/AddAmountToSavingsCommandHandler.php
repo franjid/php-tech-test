@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Application\Command;
 
 use App\Application\SavingsAddAmount;
+use App\Types\ValueObject\Amount;
 
 final class AddAmountToSavingsCommandHandler
 {
@@ -17,9 +18,7 @@ final class AddAmountToSavingsCommandHandler
 
     public function __invoke(AddAmountToSavingsCommand $command): void
     {
-        // @todo create value object for amount
-        //$amount = new Amount($command->amount());
-        $amount = $command->amount();
+        $amount = new Amount($command->amount());
 
         $this->savings->add($amount);
     }
