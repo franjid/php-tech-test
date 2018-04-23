@@ -1,0 +1,6 @@
+services:
+  app.controller.savings.post:
+    class: App\Controller\SavingsPostController
+    tags: ['controller.service_arguments']
+    arguments:
+      - '@app.infrastructure.command_bus'
