@@ -24,7 +24,16 @@ services:
         tags: ['controller.service_arguments']
 
 
+    # Buses
     app.infrastructure.command_bus:
         class: App\Infrastructure\Bus\Command\CommandBusSync
         public: false
         lazy: true
+
+    # Command Handlers
+    app.command_handler.add_amount_to_savings:
+        class: App\Application\Command\AddAmountToSavingsCommandHandler
+        tags:
+            - { name: 'app.command_handler' }
+        public: false
+

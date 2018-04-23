@@ -11,9 +11,9 @@ final class AddAmountToSavingsCommand extends Command
 {
     private $amount;
 
-    public function __construct(Uuid $messageId, string $amount)
+    public function __construct(string $amount)
     {
-        parent::__construct($messageId);
+        parent::__construct(Uuid::random());
 
         $this->amount = $amount;
     }
