@@ -33,3 +33,30 @@ Valuable resources of information for the task.
 - https://martinfowler.com/bliki/CQRS.html
 - http://fideloper.com/hexagonal-architecture
 - Google is your friend
+
+## Usage
+
+First things first:
+```
+composer install
+```
+
+Run your local php server:
+```
+php -S 127.0.0.1:8000 -t public
+```
+
+Now you can use your favorite tool to send POST requests to add money to the savings:
+```
+curl -X POST  '{"amount": 1234}' -v http://localhost:8000/savings
+```
+
+To get the total amount in savings:
+```
+curl http://localhost:8000/savings/total
+```
+
+And finally, to retrieve the history of events:
+```
+curl http://localhost:8000/savings/history
+```
