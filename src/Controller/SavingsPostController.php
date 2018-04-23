@@ -19,15 +19,14 @@ class SavingsPostController
 
     public function __invoke(Request $request)
     {
+        $requestParameters = json_decode($request->getContent(), true);
+
         $command = new AddAmountToSavingsCommand(
-            //$request->get('amount'),
-            new Amount(1234)
+            new Amount($requestParameters['amount'])
         );
 
         $this->commandBus->dispatch($command);
 
-        return new Response(
-            '<html><body>DONE</body></html>'
-        );
+        return new Response('', Response::HTTP_ACCEPTED);
     }
 }
