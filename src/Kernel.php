@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\CommandBusCompilerPass;
+use App\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\QueryBusCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -63,5 +64,6 @@ class Kernel extends BaseKernel
     protected function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new CommandBusCompilerPass('app.command_handler'));
+        $container->addCompilerPass(new QueryBusCompilerPass('app.query_handler'));
     }
 }

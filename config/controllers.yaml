@@ -4,3 +4,9 @@ services:
     tags: ['controller.service_arguments']
     arguments:
       - '@app.infrastructure.command_bus'
+
+  app.controller.savings.get_total_balance:
+    class: App\Controller\SavingsGetTotalBalanceController
+    tags: ['controller.service_arguments']
+    arguments:
+      - '@app.infrastructure.query_bus'

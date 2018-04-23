@@ -2,3 +2,9 @@ savings_post:
   path:     /savings
   defaults: { _controller: app.controller.savings.post }
   methods:  [GET]
+
+savings_get_total_balance:
+  path:     /savings/total
+  defaults: { _controller: app.controller.savings.get_total_balance }
+  methods:  [GET]
+

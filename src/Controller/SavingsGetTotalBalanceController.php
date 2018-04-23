@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Controller;
+
+use App\Application\Query\GetSavingsTotalAmountQuery;
+use App\Domain\Bus\Query\QueryBus;
+use Symfony\Component\HttpFoundation\Response;
+
+class SavingsGetTotalBalanceController
+{
+    private $queryBus;
+
+    public function __construct(QueryBus $queryBus)
+    {
+        $this->queryBus = $queryBus;
+    }
+
+    public function __invoke()
+    {
+        $query = new GetSavingsTotalAmountQuery();
+
+        $this->queryBus->dispatch($query)->done(
+            function($result) {
+                echo json_encode([
+                    'total' => $result
+                ]);
+            }
+        );
+
+        return new Response;
+    }
+}

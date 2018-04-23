@@ -30,10 +30,22 @@ services:
         public: false
         lazy: true
 
+    app.infrastructure.query_bus:
+        class: App\Infrastructure\Bus\Query\QueryBus
+        public: false
+        lazy: true
+
     # Command Handlers
     app.command_handler.add_amount_to_savings:
         class: App\Application\Command\AddAmountToSavingsCommandHandler
         tags:
             - { name: 'app.command_handler' }
+        public: false
+
+    # Query Handlers
+    app.query_handler.get_savings_total_balance:
+        class: App\Application\Query\GetSavingsTotalAmountQueryHandler
+        tags:
+            - { name: 'app.query_handler' }
         public: false
 
