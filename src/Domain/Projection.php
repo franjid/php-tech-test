@@ -6,7 +6,7 @@ namespace App\Domain;
 
 use App\Domain\Bus\Event\Event;
 
-interface EventStore
+interface Projection
 {
-    public function save(Event $event) : void;
+    public function execute(Event $event) : void;
 }

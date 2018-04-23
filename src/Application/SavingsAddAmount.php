@@ -7,6 +7,7 @@ namespace App\Application;
 use App\Application\Event\AmountWasAddedToSavingsEvent;
 use App\Application\Event\EventStoreCsv;
 use App\Application\Event\Listener\AmountWasAddedToSavingsListener;
+use App\Application\Projection\SavingsUpdateTotalAmountProjection;
 use App\Domain\Bus\Event\EventPublisher;
 
 final class SavingsAddAmount
@@ -26,7 +27,10 @@ final class SavingsAddAmount
 
         $this->publisher->subscribe(
             AmountWasAddedToSavingsEvent::class,
-                new AmountWasAddedToSavingsListener(new EventStoreCsv())
+                new AmountWasAddedToSavingsListener(
+                    new EventStoreCsv(),
+                    new SavingsUpdateTotalAmountProjection()
+                )
         );
         $this->publisher->publish($event);
     }
